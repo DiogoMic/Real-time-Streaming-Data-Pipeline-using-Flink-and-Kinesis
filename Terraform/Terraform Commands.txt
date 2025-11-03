@@ -1,0 +1,18 @@
+## Initialize Terraform
+terraform init
+
+
+## Preview Terraform Execution Plan
+terraform plan
+
+
+## Apply Terraform Configuration (Interactive)
+terraform apply
+
+
+## Apply Terraform Configuration Automatically (No Confirmation)
+terraform apply --auto-approve
+
+
+## Destroy Terraform Infrastructure
+terraform destroy
