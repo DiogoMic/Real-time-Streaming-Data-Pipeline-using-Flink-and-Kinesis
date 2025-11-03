@@ -1,0 +1,478 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%md\n## Python Flink Application Demo 1\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:27:37+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434839965_884671768",
+      "id": "paragraph_1644434839965_884671768",
+      "dateCreated": "2022-02-09T19:27:19+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2183",
+      "dateFinished": "2022-02-09T19:27:40+0000",
+      "dateStarted": "2022-02-09T19:27:37+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Python Flink Application Demo 1</h2>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%md\n### This demo doesn't contain the real schema definition for our US Accidents use case, but only showing the Python way to do it",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:28:44+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434876660_1893234262",
+      "id": "paragraph_1644434876660_1893234262",
+      "dateCreated": "2022-02-09T19:27:56+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2280",
+      "dateFinished": "2022-02-09T19:28:44+0000",
+      "dateStarted": "2022-02-09T19:28:44+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>This demo doesn&rsquo;t contain the real schema definition for our US Accidents use case, but only showing the Python way to do it</h3>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%flink.pyflink\nimport traceback",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:24:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434692956_1740329482",
+      "id": "paragraph_1643914442384_1847757053",
+      "dateCreated": "2022-02-09T19:24:52+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:1562"
+    },
+    {
+      "text": "%flink.pyflink\n\n# Create input table, using a Kinesis data stream.\ndef create_table_input(table_name, stream_name, aws_region):\n    return \"\"\"CREATE TABLE IF NOT EXISTS {0} (\n                  country_name VARCHAR(50),\n                  name VARCHAR(50),\n                  address VARCHAR(250),\n                  credit_card VARCHAR(50),\n                  credit_card_provider VARCHAR(100),\n                  payment_currency_detail VARCHAR(50),\n                  payment_amount DOUBLE,\n                  balance DOUBLE,\n                  payment_time_zone VARCHAR(50),\n                  payment_timestamp TIMESTAMP(3),\n                  WATERMARK FOR payment_timestamp as payment_timestamp - INTERVAL '5' SECOND  \n\t            )\n\t\t        PARTITIONED BY (country_name)\n                WITH (\n                  'connector' = 'kinesis',\n                  'stream' = '{1}',\n                  'aws.region' = '{2}',\n                  'scan.stream.initpos' = 'LATEST',\n                  'format' = 'json',\n                  'json.timestamp-format.standard' = 'ISO-8601'\n\t            ) \"\"\".format(table_name, stream_name, aws_region)",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:24:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434692958_2128056433",
+      "id": "paragraph_1643840287660_1494821738",
+      "dateCreated": "2022-02-09T19:24:52+0000",
+      "status": "READY",
+      "$$hashKey": "object:1563"
+    },
+    {
+      "text": "%md\n#### Creating target or Sink function",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:29:06+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h4>Creating target or Sink function</h4>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434692959_2077503905",
+      "id": "paragraph_1643840334917_1661175072",
+      "dateCreated": "2022-02-09T19:24:52+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:1564",
+      "dateFinished": "2022-02-09T19:29:06+0000",
+      "dateStarted": "2022-02-09T19:29:06+0000"
+    },
+    {
+      "text": "%flink.pyflink\n\n# Create output table, using S3 as the sink.\ndef create_table_output_s3(s3_bucket, table_name):\n    return \"\"\"CREATE TABLE IF NOT EXISTS {1} (\n                  country_name VARCHAR(50),\n                  name VARCHAR(50),\n                  address VARCHAR(250),\n                  credit_card VARCHAR(50),\n                  credit_card_provider VARCHAR(100),\n                  payment_currency_detail VARCHAR(50),\n                  payment_amount DOUBLE,\n                  balance DOUBLE,\n                  payment_time_zone VARCHAR(50),\n                  payment_timestamp TIMESTAMP(3)\n              )\n              PARTITIONED BY (`credit_card_provider`)\n              WITH (\n                'connector' = 'filesystem',\n                'path' = 's3a://{0}/{1}/',\n                'format' = 'json',\n                'sink.partition-commit.policy.kind'='success-file',\n                'sink.partition-commit.delay' = '1 min'\n              ) \"\"\".format(s3_bucket, table_name)\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:24:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434692960_867949037",
+      "id": "paragraph_1643840403880_1791683110",
+      "dateCreated": "2022-02-09T19:24:52+0000",
+      "status": "READY",
+      "$$hashKey": "object:1565"
+    },
+    {
+      "text": "%flink.pyflink\n\n# Sample aggregation\ndef insert_stream_etl(insert_from, insert_into):\n        return \"\"\"INSERT INTO {1}\n              SELECT country_name, credit_card_provider, AVG(payment_amount) as avg_payment_amount, \n\t\t\t         TUMBLE_START(payment_timestamp, INTERVAL '60' SECOND ) as payment_timestamp\n              FROM {0} \n              GROUP BY TUMBLE(payment_timestamp, INTERVAL '60' SECOND ), country_name, credit_card_provider \"\"\".format(insert_from, insert_into)",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:24:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434692961_1736876266",
+      "id": "paragraph_1643840468484_791419926",
+      "dateCreated": "2022-02-09T19:24:52+0000",
+      "status": "READY",
+      "$$hashKey": "object:1566"
+    },
+    {
+      "text": "%flink.pyflink\n\n# Ingest all data from source to target, as is\ndef insert_stream(insert_from, insert_into):\n        return \"\"\"INSERT INTO {1}\n              SELECT *\n              FROM {0} \"\"\".format(insert_from, insert_into)",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:24:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434692964_2132996929",
+      "id": "paragraph_1643894419357_985611222",
+      "dateCreated": "2022-02-09T19:24:52+0000",
+      "status": "READY",
+      "$$hashKey": "object:1567"
+    },
+    {
+      "text": "%flink.pyflink\n\n# Environment settings\nenv_settings = EnvironmentSettings.new_instance().in_streaming_mode().use_blink_planner().build()\ntable_env = StreamTableEnvironment.create(environment_settings=env_settings)\nstatement_set = table_env.create_statement_set()\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:24:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434692964_1965627417",
+      "id": "paragraph_1643893192844_1779335959",
+      "dateCreated": "2022-02-09T19:24:52+0000",
+      "status": "READY",
+      "$$hashKey": "object:1568"
+    },
+    {
+      "text": "%md\n## Start streaming\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:29:31+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434952180_74485270",
+      "id": "paragraph_1644434952180_74485270",
+      "dateCreated": "2022-02-09T19:29:12+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2430",
+      "dateFinished": "2022-02-09T19:29:31+0000",
+      "dateStarted": "2022-02-09T19:29:31+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Start streaming</h2>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%flink.pyflink\n\ndef main():\n    # Temporary hard-coded values. These will be fetched from input params or properties file instead.\n    input_table = \"stream_finance_bank_txn_demo_1\"\n    input_stream = \"kinesis-stream-01\"\n    input_region = \"eu-west-1\"\n    output_s3_bucket = \"your_bucket_name_here\"\n    output_table_s3 = \"tbl_raw_finance_bank_txn_demo_1\"\n    \n    try:\n        # Create tables\n        table_env.execute_sql(create_table_input(input_table, input_stream, input_region))\n        table_env.execute_sql(create_table_output_s3(output_s3_bucket, output_table_s3))\n    \n        # Prepare statement\n        statement_set.add_insert_sql(insert_stream(input_table, output_table_s3))\n    \n        # Run stream\n        run_stream = statement_set.execute()\n        \n        # Return call\n        return run_stream\n        \n    except Exception as e:\n        print('Error on running stream: {}'.format(e))\n        traceback.print_exc()\n\n\nif __name__ == '__main__':\n    main()",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:24:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434692964_1550120828",
+      "id": "paragraph_1643840511851_860266366",
+      "dateCreated": "2022-02-09T19:24:52+0000",
+      "status": "READY",
+      "$$hashKey": "object:1569"
+    },
+    {
+      "text": "%flink.pyflink\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-02-09T19:24:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1644434692964_914517712",
+      "id": "paragraph_1643840573445_408250804",
+      "dateCreated": "2022-02-09T19:24:52+0000",
+      "status": "READY",
+      "$$hashKey": "object:1570"
+    }
+  ],
+  "name": "python-flink-us-accidents-demo-lab-1",
+  "id": "2GVMQY6CG",
+  "defaultInterpreterGroup": "flink",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/python-flink-us-accidents-demo-lab-1"
+}
